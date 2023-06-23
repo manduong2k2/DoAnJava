@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html   xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<th:block th:replace="layout :: head"></th:block>
+<body>
+<th:block th:replace="layout :: header"></th:block>
+<!-- Page Header-->
+<header class="masthead" >
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1 th:text="${post.title}"></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+
+    <ul>
+        <div>
+            <p style="font-style:italic" th:text="${post.intro}"></p>
+        </div>
+        <div  th:each="postContent: ${post.contents}">
+            <ul>
+                <h1 th:text="${postContent.subheading}"></h1>
+                <p th:text="${postContent.content}"></p>
+            </ul>
+        </div>
+        <div>
+            <p style="font-style:italic" th:text="${post.ending}"></p>
+        </div>
+    </ul>
+</div>
+<!--<script th:src="@{/webjars/jquery/3.6.4/jquery.min.js}"></script>-->
+<!--<script th:src="@{/js/list.js}"></script>-->
+<th:block th:replace = "layout :: footer"></th:block>
+</body>
+</html>

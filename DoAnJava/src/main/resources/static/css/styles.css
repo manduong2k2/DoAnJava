@@ -85,23 +85,65 @@
   box-sizing: border-box;
 }
 .side-nav{
-            width:0.1px;
-            height:100%;
-            position:fixed;
-            top:0;
-            left:0;
-            padding:30px 15px;
-            background:rgba(0,0,0,0);
-            display:flex;
-            justify-content:space-between;
-            transition: width 0.5s,background 0.5s;
-            z-index:2;
-        }
-        .side-nav:hover{
-            width:250px;
-            background:rgba(255,255,255,0.2);
-            backdrop-filter:blur(5px);
-        }
+    width:0.1px;
+    height:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    padding:30px 15px;
+    background:rgba(0,0,0,0);
+    display:inline-block;
+    transition: width 0.5s,background 0.5s;
+    z-index:2;
+    flex-direction: column;
+}
+.side-nav:hover{
+    width:250px;
+    background:rgba(255,255,255,0.2);
+    backdrop-filter:blur(5px);
+}
+ul{
+    list-style:none;
+    padding: 0 15px;
+}
+ul li{
+    margin: 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow:hidden;
+}
+ul li a{
+    white-space: nowrap;
+    font-size: 10px;
+    display: none;
+    border-radius:10px;
+    transition: background 1s;
+}
+ul li a:hover {
+    background:white;
+}
+#sideNavBrand{
+    margin-left:10px;
+    display: block;
+    white-space: nowrap;
+    background:transparent;
+    border-radius:10px;
+    color:transparent;
+    transition: background 0.5s,color 0.5s;
+}
+.side-nav:hover ul li a{
+    display: block;
+}
+.side-nav:hover #sideNavBrand{
+    justify-content: center;
+    display:flex;
+    background:white;
+    color: black;
+}
+
+
 @media (prefers-reduced-motion: no-preference) {
   :root {
     scroll-behavior: smooth;

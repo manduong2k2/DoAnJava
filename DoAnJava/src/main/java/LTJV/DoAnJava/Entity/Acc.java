@@ -15,6 +15,7 @@ public class Acc {
     @Id
     @NotBlank(message = "Username is required")
     @Size(max = 255, message = "Username must be less than 50 characters")
+    @Column(name = "username",length = 255,nullable = false)
     private String username;
     @Column(name = "password", length = 250, nullable = false)
     @NotBlank(message = "Password is required")
@@ -32,4 +33,5 @@ public class Acc {
             joinColumns = @JoinColumn(name = "acc_name"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
+
 }

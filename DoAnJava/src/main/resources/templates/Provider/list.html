@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html   xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>My book List</title>
+    <th:block th:replace="layout :: link-css"></th:block>
+</head>
+<body>
+<th:block th:replace="Layout :: header"></th:block>
+
+<div class="container">
+    <h1 th:text="${title}"></h1>
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Expiration</th>
+
+        </tr>
+        <tbody id = "book-table-body">
+
+        </tbody>
+        <tr th:each="provider: ${providers}">
+            <td th:text="${provider.id}"></td>
+            <td th:text="${provider.name}"></td>
+
+            <td th:text="${provider.expiration}"></td>
+
+            <td sec:authorize="hasAnyAuthority('ADMIN')">
+                <a th:href="@{/providers/edit/{id}(id=${provider.id})}" class="text-info">Edit</a>
+                <a th:href="@{/providers/delete/{id}(id=${provider.id})}"
+                   onclick="return confirm('Are you sure?')" class="text-danger">Delete</a>
+            </td>
+        </tr>
+    </table>
+</div>
+<!--<script th:src="@{/webjars/jquery/3.6.4/jquery.min.js}"></script>-->
+<!--<script th:src="@{/js/list.js}"></script>-->
+<th:block th:replace = "layout :: footer"></th:block>
+</body>
+</html>

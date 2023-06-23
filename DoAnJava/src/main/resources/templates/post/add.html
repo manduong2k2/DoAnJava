@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html   xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://thymeleaf.org">
+<th:block th:replace="layout :: head"></th:block>
+<body>
+<th:block th:replace="layout :: header"></th:block>
+<header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="site-heading">
+          <h1>Blog sức khỏe</h1>
+          <span class="subheading">sức khỏe là vốn quý nhất của mỗi người dân cũng như của toàn xã hội</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container px-4 px-lg-5">
+  <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="col-md-10 col-lg-8 col-xl-7">
+      <h1>Add Post</h1>
+
+      <form th:action="@{/posts/add}" th:object="${post}" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label class="form-label" for="title">Title:</label>
+          <input type="text" th:field="*{title}" class="form-control" id="title" name="title" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="intro">Introduction:</label>
+          <textarea type="text" rows="4" cols="50" th:field="*{intro}" class="form-control" id="intro" name="intro" />
+        </div>
+        <div class="custom-file mb-2">
+          <label class="custom-file-label" for="customFile">Cover image: </label>
+          <input type="file" name="file" class="custom-file-input" id="customFile">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="postContents">Post Contents:</label>
+          <input type="hidden" id="postContents" name="postContents" />
+          <div class="mb-3">
+            <label class="form-label" for="subheading">Subheading:</label>
+            <input type="text" class="form-control" id="subheading" name="postContent.subheading" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="content">Content:</label>
+            <textarea type="text" class="form-control" rows="4" cols="50" id="content" name="postContent.content"></textarea>
+          </div>
+          <button type="button" id="addPostContent" class="btn btn-primary">Add Post Content</button>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="ending">Ending:</label>
+          <textarea type="text" rows="4" cols="50" th:field="*{ending}" class="form-control" id="ending" name="ending" />
+        </div>
+        <input type="submit" class="btn btn-success" value="Save" />
+      </form>
+      <style>
+        .btn {
+          border-radius:10px;
+        }
+        label{
+          font-weight:bold;
+        }
+      </style>
+      <script>
+            var postContents = [];
+
+            function addPostContent() {
+              var postContent = {
+                subheading: "",
+                content: ""
+              };
+              postContent.subheading=document.getElementById("subheading").value;
+              postContent.content=document.getElementById("content").value;
+              if(postContent.subheading==""){
+                alert("Please enter the subheading !!");
+              }
+              else if(postContent.content==""){
+                alert("Please enter the content !!");
+              }
+              else{
+                postContents.push(postContent);
+                document.getElementById("postContents").value = JSON.stringify(postContents);
+                alert("Add content success");
+                document.getElementById("subheading").value="";
+                document.getElementById("content").value="";
+              }
+            }
+            document.getElementById("addPostContent").addEventListener("click", addPostContent);
+      </script>
+      <br>
+      <a th:href="@{/posts}">Back to List</a>
+    </div>
+  </div>
+</div>
+<th:block th:replace = "layout :: footer"></th:block>
+</body>
+</html>
