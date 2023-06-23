@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module version="4">
   <component name="AdditionalModuleElements">
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/DoAnJava/src/main/resources/static/img/post-photos" />
+      <excludeFolder url="file://$MODULE_DIR$/DoAnJava/src/main/resources/static/img/product-photos" />
+      <excludeFolder url="file://$MODULE_DIR$/DoAnJava/src/main/resources/static/img/product-photos/22" />
+    </content>
   </component>
 </module>

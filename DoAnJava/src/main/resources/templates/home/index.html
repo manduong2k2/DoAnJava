@@ -23,13 +23,13 @@
             <h1>Post List</h1>
             <table class="table">
                 <tbody id = "table-body">
-                    <tr th:each="post: ${posts}">
+                    <tr class="postBody" th:each="post: ${posts}">
                         <td>
-                            <img th:src="${post.coverImage}" width="80" height="80" />
+                            <img th:src="${post.coverImage}" width="200" height="200" style="border-radius:10px"/>
                         </td>
                         <td>
                             <a style="font-weight:bold" th:href="@{/details/{id}(id=${post.id})}" th:text="${post.title}"></a>
-                            <p th:text="${post.date}"></p>
+                            <p class="date" th:text="${post.date}"></p>
                             <p class="postContent" th:text="${post.intro}"></p>
                         </td>
                     </tr>
@@ -43,7 +43,6 @@
                     width: 500px;
                 }
             </style>
-            <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
         </div>
     </div>
 </div>

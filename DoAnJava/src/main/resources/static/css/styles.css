@@ -104,7 +104,7 @@
 }
 ul{
     list-style:none;
-    padding: 0 15px;
+    padding: 0 20px;
 }
 ul li{
     margin: 30px 0;
@@ -114,15 +114,28 @@ ul li{
     cursor: pointer;
     overflow:hidden;
 }
-ul li a{
+.link{
     white-space: nowrap;
-    font-size: 10px;
+    font-size: 20px;
     display: none;
     border-radius:10px;
     transition: background 1s;
 }
-ul li a:hover {
+.link:hover {
     background:white;
+}
+.postBody{
+    border-width:1px;
+    border-color:black;
+    border-radius:10px;
+    border-style:hidden;
+}
+.postBody:hover{
+    border-style:groove;
+}
+.date{
+    font-style:italic;
+    text-decoration:underline;
 }
 #sideNavBrand{
     margin-left:10px;
@@ -1519,7 +1532,7 @@ progress {
   }
   .col-xl-7 {
     flex: 0 0 auto;
-    width: 58.33333333%;
+    width: 70%;
   }
   .col-xl-8 {
     flex: 0 0 auto;
@@ -10732,8 +10745,8 @@ footer {
 header.masthead {
   position: relative;
   margin-bottom: 3rem;
-  padding-top: calc(8rem + 57px);
-  padding-bottom: 8rem;
+  padding-top: calc(6rem + 57px);
+  padding-bottom: 6rem;
   background: no-repeat center center;
   background-color: #6c757d;
   background-size: cover;
