@@ -33,7 +33,7 @@ public class Product {
 
     @Column(name = "uses")
     @NotEmpty(message = "Uses must not be empty")
-    @Size(max = 100, min = 1, message = "Uses must be less than 100 characters")
+    @Size(max = 500, min = 1, message = "Uses must be less than 500 characters")
     private String uses;
 
     @ManyToOne
