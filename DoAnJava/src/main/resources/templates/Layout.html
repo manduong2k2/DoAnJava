@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:fragment="head">
     <meta charset="UTF-8">
     <title>My Blog</title>
@@ -32,21 +33,40 @@
                 <ul class="navbar-nav ms-auto py-4 py-lg-0">
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Home</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/about">About</a></li>
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/post">Sample Post</a></li>
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/products">Products</a></li>
+                    <li sec:authorize="isAuthenticated()" >
+                        <a>
+                            <span class="fa-stack fa-2x has-badge" id="cartIcon" data-count="5">
+                            <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                            <i style="" class="fa fa-shopping-cart fa-stack-2x red-cart"></i>
+                            <span class="badge badge-primary" style="position: absolute; right: 0; top: 0;">0</span>
+                        </span>
+                        </a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()">
+                        <form th:action="@{/logout}" method="post">
+                            <button style="border-radius:10px" class="btn btn-outline-danger" type="submit">Logout</button>
+                        </form>
+                    </li>
+
+                    <li sec:authorize="!isAuthenticated()">
+                        <a style="border-radius:10px" class="btn btn-outline-primary" href="/login">Login</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="side-nav">
+    <div class="side-nav" sec:authorize="hasAnyAuthority('ADMIN')">
         <div>
-            <h1 id="sideNavBrand" >Menu</h1>
+            <h3 id="sideNavBrand" >Management</h3>
         </div>
         <ul>
             <li class="nav-item"><a class="link" href="/products/add">Add new product</a></li>
             <li class="nav-item"><a class="link" href="/products">List products</a></li>
             <li class="nav-item"><a class="link" href="/posts/add">Add new post</a></li>
-            <li class="nav-item"><a class="link" href="/posts">List post</a></li>
+            <li class="nav-item"><a class="link" href="/posts">List posts</a></li>
+            <li class="nav-item"><a class="link" href="/providers/add">Add new provider</a></li>
+            <li class="nav-item"><a class="link" href="/providers">List providers</a></li>
         </ul>
     </div>
 </header>
@@ -83,7 +103,7 @@
                         </a>
                     </li>
                 </ul>
-                <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website 2023</div>
+                <div class="small text-center text-muted fst-italic">Copyright &copy; Mẫn Dy Nghĩa Thịnh Inc</div>
             </div>
         </div>
     </div>

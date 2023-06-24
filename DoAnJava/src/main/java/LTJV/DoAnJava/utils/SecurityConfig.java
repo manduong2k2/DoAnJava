@@ -46,15 +46,15 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws
             Exception {
         return http.authorizeHttpRequests(auth -> auth
-                        .requestMatchers( "/css/**", "/js/**", "/", "/register",
+                        .requestMatchers( "/css/**", "/js/**","/providers","/products","/about","/assets/**", "/","/details/**","/img/**","/register",
                                 "/templates/error")
                         .permitAll()
 
-                        .requestMatchers( "/books/edit", "/books/delete")
+                        .requestMatchers( "/products/edit", "/products/delete","/posts/delete","/posts/add","/providers/add")
 
                         .hasAnyAuthority("ADMIN")
 
-                        .requestMatchers("/books", "/books/add")
+                        .requestMatchers("/details")
 
                         .hasAnyAuthority("ADMIN","USER")
                         .requestMatchers("/api/**")

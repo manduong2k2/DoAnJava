@@ -10741,7 +10741,10 @@ footer {
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
-
+.svg-inline--fa.fa-stack-2x {
+    height: 1.5em;
+    width: 1.5em;
+}
 header.masthead {
   position: relative;
   margin-bottom: 3rem;

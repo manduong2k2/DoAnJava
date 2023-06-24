@@ -20,7 +20,7 @@ public class ProductController {
     private ProviderService providerService;
 
     @GetMapping
-    public String showAllBooks(Model model) {
+    public String showAllProducts(Model model) {
         model.addAttribute("products", productService.getAllProducts());
         model.addAttribute("title", "Product List");
         return "product/list";
@@ -32,7 +32,7 @@ public class ProductController {
         return "product/add";
     }
     @PostMapping("/add")
-    public String addBook(@Valid @ModelAttribute("product") Product product, @RequestParam("file") MultipartFile file, BindingResult bindingResult, Model model){
+    public String addProduct(@Valid @ModelAttribute("product") Product product, @RequestParam("file") MultipartFile file, BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()){
             model.addAttribute("providers", providerService.getAllProviders());
             return "/product/add";
@@ -53,7 +53,7 @@ public class ProductController {
         }
     }
     @PostMapping("/edit")
-    public String editBook(@ModelAttribute("product") Product updateProduct,@RequestParam("file") MultipartFile file){
+    public String editProduct(@ModelAttribute("product") Product updateProduct,@RequestParam("file") MultipartFile file){
         Product product = productService.getProductById(updateProduct.getId());
         product.setName(updateProduct.getName());
         product.setPrice(updateProduct.getPrice());

@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html   xmlns="http://www.w3.org/1999/xhtml"
         xmlns:th="http://thymeleaf.org">
-<head>
-  <meta charset="UTF-8">
-  <th:block th:replace="layout :: link-css"></th:block>
-  <title>Add book</title>
-
-</head>
+<th:block th:replace="layout :: head"></th:block>
 <body>
-<th:block th:replace="Layout :: header"></th:block>
-
+<th:block th:replace="layout :: header"></th:block>
+<header class="masthead" style="background-image: url('assets/img/providers.jpg')">
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="site-heading">
+          <h1>Blog sức khỏe</h1>
+          <span class="subheading">sức khỏe là vốn quý nhất của mỗi người dân cũng như của toàn xã hội</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 <div class="container">
-  <h1>Add Book</h1>
-  <form th:action="@{/providers/add}" th:object="${provider}" method="post">
+  <h1>Add provider</h1>
+  <form th:action="@{/providers/add}" th:object="${provider}" method="post" enctype="multipart/form-data">
     <div class="col-6 mb-3">
       <label class="form-label" for="name">Name: </label>
       <input class="form-control" type="text" th:field="*{name}" id="name">
     </div>
-
+    <div class="custom-file mb-2">
+      <input type="file" name="file" class="custom-file-input" id="customFile">
+      <label class="custom-file-label" for="customFile">Choose file</label>
+    </div>
     <input type="submit" class="btn btn-primary" value="Save">
   </form>
   <br>

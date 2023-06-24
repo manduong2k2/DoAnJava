@@ -5,6 +5,8 @@
       <excludeFolder url="file://$MODULE_DIR$/DoAnJava/src/main/resources/static/img/post-photos" />
       <excludeFolder url="file://$MODULE_DIR$/DoAnJava/src/main/resources/static/img/product-photos" />
       <excludeFolder url="file://$MODULE_DIR$/DoAnJava/src/main/resources/static/img/product-photos/22" />
+      <excludeFolder url="file://$MODULE_DIR$/DoAnJava/src/main/resources/static/img/provider-photos" />
+      <excludeFolder url="file://$MODULE_DIR$/DoAnJava/src/main/resources/static/img/provider-photos/1" />
     </content>
   </component>
 </module>

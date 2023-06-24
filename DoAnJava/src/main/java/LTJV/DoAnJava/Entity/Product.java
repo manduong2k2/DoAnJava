@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+import org.hibernate.annotations.Nationalized;
 
 import java.sql.Date;
 
@@ -16,9 +17,10 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Lob
+    @Nationalized
     @Column(name = "name")
     @NotEmpty(message = "Name must not be empty")
-    @Size(max = 50, min = 1, message = "Name must be less than 50 characters")
     private String name;
 
     @Column(name = "price")

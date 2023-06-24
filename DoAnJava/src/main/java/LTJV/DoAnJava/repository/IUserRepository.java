@@ -18,5 +18,4 @@ public interface IUserRepository  extends JpaRepository<Acc,Long> {
     @Query (value = "SELECT r.name FROM role r INNER JOIN acc_role ur " +
             "ON r.id = ur.role_id WHERE ur.acc_name = ?1", nativeQuery= true)
     String[] getRolesOfUser (String username);
-
 }
