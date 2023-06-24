@@ -50,7 +50,7 @@ public class PostController {
             post.setContents(contentList);
             post.setDate(Date.valueOf(LocalDate.now()));
             postService.addPost(file, post);
-            return "home/index";
+            return "redirect:/";
         }
         catch (Exception e){
             System.out.println(e.getMessage());

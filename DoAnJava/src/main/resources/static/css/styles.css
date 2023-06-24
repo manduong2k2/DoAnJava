@@ -130,9 +130,6 @@ ul li{
     border-radius:10px;
     border-style:hidden;
 }
-.postBody:hover{
-    border-style:groove;
-}
 .date{
     font-style:italic;
     text-decoration:underline;
