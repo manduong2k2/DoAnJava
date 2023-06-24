@@ -2,6 +2,7 @@
 <module version="4">
   <component name="AdditionalModuleElements">
     <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/DoAnJava/src/main/resources/static/img/product-photos/1" />
       <excludeFolder url="file://$MODULE_DIR$/DoAnJava/src/main/resources/static/img/product-photos/22" />
       <excludeFolder url="file://$MODULE_DIR$/DoAnJava/src/main/resources/static/img/provider-photos/1" />
     </content>
