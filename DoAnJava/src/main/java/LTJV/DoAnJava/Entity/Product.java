@@ -8,6 +8,8 @@ import lombok.Data;
 import org.hibernate.annotations.Nationalized;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -44,4 +46,6 @@ public class Product {
     @NotNull(message = "Expiration is required")
     private Date expiration;
 
+    @OneToMany (mappedBy = "product", cascade = CascadeType.ALL)
+    private List<Item> items=new ArrayList<>();
 }

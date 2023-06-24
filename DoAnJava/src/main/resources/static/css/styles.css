@@ -4147,7 +4147,7 @@ textarea.form-control-lg {
   --bs-card-cap-padding-x: 1rem;
   --bs-card-cap-bg: rgba(0, 0, 0, 0.03);
   --bs-card-cap-color: ;
-  --bs-card-height: ;
+  --bs-card-height: 300px ;
   --bs-card-color: ;
   --bs-card-bg: #fff;
   --bs-card-img-overlay-padding: 1rem;
@@ -4186,16 +4186,31 @@ textarea.form-control-lg {
   padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
   color: var(--bs-card-color);
 }
+.panel-body{
 
+}
 .card-title {
-  margin-bottom: var(--bs-card-title-spacer-y);
+    width: 300px;
+    white-space: nowrap;
+    margin-bottom: var(--bs-card-title-spacer-y);
+    max-height: 30px;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .card-subtitle {
   margin-top: calc(-0.5 * var(--bs-card-title-spacer-y));
   margin-bottom: 0;
 }
-
+.card-text{
+    height:200px;
+}
+#itemNumber{
+    color:red;
+}
+#btnAdd{
+    border-radius:10px;
+}
 .card-text:last-child {
   margin-bottom: 0;
 }

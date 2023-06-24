@@ -5,7 +5,9 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -33,5 +35,8 @@ public class Acc {
             joinColumns = @JoinColumn(name = "acc_name"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
+
+    @OneToMany (mappedBy = "acc", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private List<Order> orders=new ArrayList<>();
 
 }

@@ -21,5 +21,7 @@ public class CustomUserDetailService implements UserDetailsService {
         }
         return new CustomUserDetail(user,userRepository);
     }
-
+    public Acc getUser(String username){
+        return userRepository.findByUserName(username);
+    }
 }
