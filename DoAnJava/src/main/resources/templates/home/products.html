@@ -32,11 +32,14 @@
                         <b>Giá:</b> <a th:text="${product.price}"></a></br>
                         <b>Hạn sử dụng:</b> <a th:text="${product.expiration}"></a></br>
                         <b>Nhà cung cấp:</b> <a th:text="${product.provider.name}"></a></br>
+                        <button th:onclick="AddToCard(${product.id})" class="btn btn-success" >Add to cart</button>
                     </p>
+
                 </div>
             </div>
         </div>
     </div>
+
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     <th:block th:replace="layout :: footer"></th:block>
 </body>

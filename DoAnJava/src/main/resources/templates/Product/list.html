@@ -22,13 +22,15 @@
         <div class="card" th:each="product: ${products}">
             <div class="card-body">
                 <h5 class="card-title" th:text="${product.name}"></h5>
+                <img th:src="${product.image}" width="200" height="200"/>
                 <p class="card-text">
-                    <img th:src="${product.image}" width="200" height="200"/>
-                    <b>Tên SP:</b> <a th:text="${product.name}"></a> </br>
                     <b>Công dụng:</b> <a th:text="${product.uses}"></a> </br>
                     <b>Giá:</b> <a th:text="${product.price}"></a></br>
                     <b>Hạn sử dụng:</b> <a th:text="${product.expiration}"></a></br>
                     <b>Nhà cung cấp:</b> <a th:text="${product.provider.name}"></a></br>
+                    <input type="hidden" id="items" name="items" />
+                    <button th:onclick="'javascript:AddToCard(' + ${product.id} + ','+ ${product.id} + ')'"
+                            class="btn btn-success" >Add to cart</button>
                 </p>
                 <div class="card-actions" sec:authorize="hasAnyAuthority('ADMIN')">
                     <a th:href="@{/products/edit/{id}(id=${product.id})}" class="text-info">Edit</a>
@@ -37,8 +39,11 @@
                 </div>
             </div>
         </div>
+
     </div>
 </div>
+        <script src="js/cart.js">
+        </script>
 <!--<script th:src="@{/webjars/jquery/3.6.4/jquery.min.js}"></script>-->
 <!--<script th:src="@{/js/list.js}"></script>-->
 <th:block th:replace = "layout :: footer"></th:block>
