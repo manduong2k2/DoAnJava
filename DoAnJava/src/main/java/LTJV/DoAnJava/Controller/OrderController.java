@@ -11,10 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -87,5 +84,19 @@ public class OrderController {
             System.out.println(e);
             return "error/404";
         }
+    }
+    @GetMapping("/history")
+    public String orderHistory(Model model,@AuthenticationPrincipal CustomUserDetail acc){
+        model.addAttribute("acc",userDetailService.getUser(acc.getUsername()));
+        return "order/history";
+    }
+    @GetMapping("/details/{id}")
+    public String orderDetail(@PathVariable("id") Long id,Model model){
+        Order order=orderService.getOrderById(id);
+        if(order==null){
+            return "error/404";
+        }
+        model.addAttribute("order",order);
+        return "order/details";
     }
 }

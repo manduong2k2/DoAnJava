@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<th:block th:replace="layout :: head"></th:block>
+<body>
+<th:block th:replace="layout :: header"></th:block>
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="site-heading">
+          <h1>Giỏ hàng</h1>
+          <span class="subheading">sức khỏe là vốn quý nhất của mỗi người dân cũng như của toàn xã hội</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+  <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="col-md-10 col-lg-8 col-xl-7">
+      <h1>Xem lại đơn hàng</h1>
+        <table class="table">
+          <tbody id = "table-body">
+          <tr class="postBody" th:each="item: ${items}">
+            <td>
+              <img th:src="'/'+${item.product.image}" width="200" height="200" style="border-radius:10px;border-width: 3px;border-style: groove;"/>
+            </td>
+            <td>
+              <b>Tên:</b> <span th:text="${item.product.name}"></span></br>
+              <b>Đơn giá: </b> <span th:text="${item.product.price}+'₫'"></span></br>
+              <b>Hạn sử dụng:</b> <span th:text="${item.product.expiration}"></span></br>
+              <b>số lượng: </b> <span th:text="${item.number}"></span>
+            </td>
+            </br>
+          </tr>
+          </tbody>
+        </table>
+        <b>Tổng tiền: </b> <span th:text="${order.total}+'₫'"></span></br>
+      <form  th:action="@{/orders/add}" id="order_form" th:object="${order}" method="post">
+        <input type="hidden" th:value="${itemList}" id="listItem" name="listItem">
+        <input type="submit" style="border-radius:10px" class="btn btn-success" value="Đặt hàng">
+      </form></br>
+      <form th:action="@{/orders/history}" id="history" method="get">
+        <input type="submit" style="border-radius:10px" class="btn btn-primary" value="Lịch sử mua hàng">
+      </form>
+    </div>
+  </div>
+</div>
+<th:block th:replace="layout :: footer"></th:block>
+</body>
+</html>

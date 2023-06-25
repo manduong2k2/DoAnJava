@@ -130,6 +130,12 @@ ul li{
     border-radius:10px;
     border-style:hidden;
 }
+.orderBody{
+    border-width:1px;
+    border-color:black;
+    border-radius:10px;
+    border-style:double;
+}
 .date{
     font-style:italic;
     text-decoration:underline;

@@ -36,7 +36,7 @@
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/products">Products</a></li>
                     <li sec:authorize="isAuthenticated()" >
                         <form th:action="@{/orders/add}" id="my_form" method="get">
-                            <input type="hidden" id="items" name="items" />
+                            <input type="hidden" id="items" value="[]" name="items" />
                             <a onclick="document.getElementById('my_form').submit();">
                                 <span class="fa-stack fa-2x has-badge" id="cartIcon" data-count="5">
                                     <i class="fa fa-circle fa-stack-2x fa-inverse"></i>

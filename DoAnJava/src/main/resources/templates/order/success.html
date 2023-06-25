@@ -4,13 +4,12 @@
 <body>
 <th:block th:replace="layout :: header"></th:block>
 <!-- Page Header-->
-<header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
+<header class="masthead" style="background-image: url('/assets/img/home-bg.jpg')">
   <div class="container position-relative px-4 px-lg-5">
     <div class="row gx-4 gx-lg-5 justify-content-center">
       <div class="col-md-10 col-lg-8 col-xl-7">
         <div class="site-heading">
-          <h1>Giỏ hàng</h1>
-          <span class="subheading">sức khỏe là vốn quý nhất của mỗi người dân cũng như của toàn xã hội</span>
+          <h1 style="color:lime">Order Success</h1>
         </div>
       </div>
     </div>
@@ -18,14 +17,14 @@
 </header>
 <div class="container px-4 px-lg-5">
   <div class="row gx-4 gx-lg-5 justify-content-center">
-    <div class="col-md-10 col-lg-8 col-xl-7">
+    <div class="col-md-10 col-lg-8 col-xl-7" style="text-align:center">
       <h1>Thank you for your order!</h1>
       <p>Your order has been successfully placed.</p>
-      <p>You will receive an email confirmation shortly with more details about your order.</p>
-      <p>Here is a summary of your order:</p>
       <p>Thank you for shopping with us!</p>
+      <a style="font-weight:bold;border-radius:10px" class="btn btn-success" href="/">Back to homepage <i class="fa fa-home"></i></a>
     </div>
   </div>
 </div>
+<th:block th:replace="layout :: footer"></th:block>
 </body>
 </html>

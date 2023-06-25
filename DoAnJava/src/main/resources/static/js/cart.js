@@ -7,6 +7,7 @@ function AddToCard(id){
     items=pushItem(item,items);
     document.getElementById('itemNumber').textContent=items.length;
     document.getElementById('items').value=JSON.stringify(items);
+    alert('Đã thêm sản phẩm vào giỏ hàng')
 }
 function pushItem(item, array) {
     var found=array.some(e=>e.product_id===item.product_id);

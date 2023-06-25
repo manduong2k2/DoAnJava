@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<th:block th:replace="layout :: head"></th:block>
+<body>
+<th:block th:replace="layout :: header"></th:block>
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>Lịch sử mua hàng</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <h1>Lịch sử mua hàng</h1>
+            <table class="table">
+                <tbody id = "table-body">
+                <b>Tài khoản:</b> <span th:text="${acc.name}"></span></br>
+                <tr class="orderBody" th:each="order: ${acc.orders}">
+                    <td>
+                        <b>Ngày:</b> <span th:text="${order.date}"></span></br>
+                        <b>Tổng tiền: </b> <span th:text="${order.total}+'₫'"></span></br>
+                        <a style="font-weight:bold" th:href="@{/orders/details/{id}(id=${order.id})}">Xem chi tiết </a>
+                    </td>
+                </tr>
+                </br>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<th:block th:replace="layout :: footer"></th:block>
+</body>
+</html>
