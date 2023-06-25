@@ -4196,10 +4196,11 @@ textarea.form-control-lg {
 
 }
 .card-title {
-    width: 300px;
-    white-space: nowrap;
+    width: 100%;
+    font-size:15px;
+    white-space: pre-line;
     margin-bottom: var(--bs-card-title-spacer-y);
-    max-height: 30px;
+    max-height: 60px;
     text-overflow: ellipsis;
     overflow: hidden;
 }
@@ -10676,7 +10677,7 @@ blockquote {
 }
 
 #mainNav {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -10732,24 +10733,25 @@ blockquote {
   #mainNav.is-fixed {
     /* when the user scrolls down, we hide the header right above the viewport */
     position: fixed;
-    top: -83px;
+    top: -160px;
     transition: transform 0.2s;
-    border-bottom: 1px solid white;
     background-color: rgba(255, 255, 255, 0.9);
   }
   #mainNav.is-fixed .navbar-brand {
-    color: #212529;
+    color: white;
   }
   #mainNav.is-fixed .navbar-brand:focus, #mainNav.is-fixed .navbar-brand:hover {
     color: #0085A1;
   }
   #mainNav.is-fixed .navbar-nav > li.nav-item > a {
-    color: #212529;
+    color: white;
   }
   #mainNav.is-fixed .navbar-nav > li.nav-item > a:focus, #mainNav.is-fixed .navbar-nav > li.nav-item > a:hover {
     color: #0085A1;
   }
   #mainNav.is-visible {
+    background-color: rgba(0,0,0,0.4);
+    backdrop-filter: blur(1.5px);
     /* if the user changes the scrolling direction, we show the header */
     transform: translate3d(0, 100%, 0);
   }

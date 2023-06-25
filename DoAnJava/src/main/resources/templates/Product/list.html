@@ -16,28 +16,32 @@
         </div>
     </div>
 </header>
-<div class="container">
-  <h1 th:text="${title}"></h1>
-    <div class="row">
-        <div th:each="product: ${products}" style="max-width:350px" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-            <div th:id="'card-' + ${product.id}" style="outline-width:1px;outline-style:groove;border-radius:10px" class="panel panel-default">
-                <div style="margin:8px" class="panel panel-heading">
-                    <h5 class="card-title" th:text="${product.name}"></h5>
-                </div>
-                <img style="margin:8px" th:src="${product.image}" width="200" height="200"/>
-                <div style="margin:8px;height:250px" class="panel-body">
-                    <b >Giá:</b><a th:text="${product.price+'₫'}"></a></br>
-                    <b>Công dụng:</b> <a th:text="${product.uses}"></a> </br>
-                    <b>Hạn sử dụng:</b> <a th:text="${product.expiration}"></a></br>
-                    <b>Nhà cung cấp:</b> <a th:text="${product.provider.name}"></a></br>
-                </div>
-                <input type="hidden" id="items" name="items" />
-                <button style="margin:8px" id="btnAdd" th:onclick="'javascript:AddToCard(' + ${product.id} + ','+ ${product.id} + ')'"
-                        class="btn btn-success" >Add to cart</button>
-                <div style="margin:8px" class="panel-footer clearfix" sec:authorize="hasAnyAuthority('ADMIN')">
-                    <a th:href="@{/products/edit/{id}(id=${product.id})}" class="text-info">Edit</a>
-                    <a th:href="@{/products/delete/{id}(id=${product.id})}"
-                       onclick="return confirm('Are you sure?')" class="text-danger">Delete</a>
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <h1 th:text="${title}"></h1>
+            <div class="row">
+                <div th:each="product: ${products}" style="max-width:350px" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div th:id="'card-' + ${product.id}" style="outline-width:1px;outline-style:groove;border-radius:10px" class="panel panel-default">
+                        <div style="margin:8px" class="panel panel-heading">
+                            <h5 class="card-title" th:text="${product.name}"></h5>
+                        </div>
+                        <img style="margin:8px" th:src="${product.image}" width="200" height="200"/>
+                        <div style="margin:8px;height:250px" class="panel-body">
+                            <b >Giá:</b><a th:text="${product.price+'₫'}"></a></br>
+                            <b>Công dụng:</b> <a th:text="${product.uses}"></a> </br>
+                            <b>Hạn sử dụng:</b> <a th:text="${product.expiration}"></a></br>
+                            <b>Nhà cung cấp:</b> <a th:text="${product.provider.name}"></a></br>
+                        </div>
+                        <input type="hidden" id="items" name="items" />
+                        <button style="margin:8px" id="btnAdd" th:onclick="'javascript:AddToCard(' + ${product.id} + ','+ ${product.id} + ')'"
+                                class="btn btn-success" >Add to cart</button>
+                        <div style="margin:8px" class="panel-footer clearfix" sec:authorize="hasAnyAuthority('ADMIN')">
+                            <a th:href="@{/products/edit/{id}(id=${product.id})}" class="text-info">Edit</a>
+                            <a th:href="@{/products/delete/{id}(id=${product.id})}"
+                               onclick="return confirm('Are you sure?')" class="text-danger">Delete</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
